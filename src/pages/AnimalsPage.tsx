@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { getAnimalData } from "../services/AnimalService";
 import { IAnimal } from "../models/IAnimal";
+import { Animals } from "../components/Animals";
 
 export const AnimalsPage = () => {
   const [animals, setAnimals] = useState<IAnimal[]>([]);
@@ -30,6 +31,7 @@ export const AnimalsPage = () => {
     <>
       <h1>Our animals</h1>
       {loading && <h2>Loading...</h2>}
+      <Animals animals={animals}></Animals>
     </>
   );
 };
