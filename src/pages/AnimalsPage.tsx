@@ -31,7 +31,9 @@ export const AnimalsPage = () => {
     <>
       <h1>Our animals</h1>
       {loading && <h2>Loading...</h2>}
-      <Animals animals={animals}></Animals>
+      <div id="animalWrapper">
+        <Animals animals={animals}></Animals>
+      </div>
     </>
   );
 };
