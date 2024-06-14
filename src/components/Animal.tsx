@@ -3,13 +3,15 @@ import { IAnimal } from "../models/IAnimal";
 
 interface IAnimalProps {
   animal: IAnimal;
+  findAnimal: (animalId: number) => void;
 }
 
-export const Animal = ({ animal }: IAnimalProps) => {
+export const Animal = ({ animal, findAnimal }: IAnimalProps) => {
   const navigate = useNavigate();
 
   const handleClick = () => {
     navigate("/animal/" + animal.id);
+    findAnimal(animal.id);
   };
 
   return (
