@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { IAnimal } from "../models/IAnimal";
+import { useState } from "react";
 
 interface IAnimalProps {
   animal: IAnimal;
@@ -8,24 +9,30 @@ interface IAnimalProps {
 
 export const Animal = ({ animal, findAnimal }: IAnimalProps) => {
   const navigate = useNavigate();
+  const [isFed, setIsFed] = useState<boolean>(false);
 
-  const handleClick = () => {
+  const handleNavigation = () => {
     navigate("/animal/" + animal.id);
     findAnimal(animal.id);
   };
 
+  const handleFeed = () => {
+    setIsFed(!animal.isFed);
+  };
   return (
     <>
-      <article id="animalCard" onClick={handleClick}>
+      <article id="animalCard">
         <h2>{animal.name}</h2>
-        <div className="imageContainer">
+        <div className="imageContainer" onClick={handleNavigation}>
           <img
             className="animalImage"
             src={animal.imageUrl}
             alt={animal.name}
           ></img>
         </div>
-        <button>Feed me</button>
+        <button disabled={isFed} onClick={handleFeed}>
+          Feed me
+        </button>
       </article>
     </>
   );
