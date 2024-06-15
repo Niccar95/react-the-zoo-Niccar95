@@ -7,8 +7,18 @@ interface IFoundAnimalProps {
 export const AnimalDetails = ({ foundAnimal }: IFoundAnimalProps) => {
   return (
     <>
-      <div>{foundAnimal?.name}</div>
-      <img src={foundAnimal?.imageUrl}></img>
+      <article id="aboutCard">
+        <h2>{foundAnimal?.name}</h2>
+
+        <div id="descriptionContainer">
+          <div className="imageContainer">
+            <img className="animalImage" src={foundAnimal?.imageUrl}></img>
+          </div>
+          <p>{foundAnimal?.longDescription}</p>
+        </div>
+
+        <button>Feed me</button>
+      </article>
     </>
   );
 };

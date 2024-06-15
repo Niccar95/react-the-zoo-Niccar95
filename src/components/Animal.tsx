@@ -18,8 +18,12 @@ export const Animal = ({ animal, findAnimal }: IAnimalProps) => {
     <>
       <article id="animalCard" onClick={handleClick}>
         <h2>{animal.name}</h2>
-        <div id="imageContainer">
-          <img id="animalImage" src={animal.imageUrl} alt={animal.name}></img>
+        <div className="imageContainer">
+          <img
+            className="animalImage"
+            src={animal.imageUrl}
+            alt={animal.name}
+          ></img>
         </div>
         <button>Feed me</button>
       </article>
