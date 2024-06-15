@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useAnimal } from "../hooks/useAnimal";
 import { useEffect } from "react";
+import { AnimalDetails } from "../components/AnimalDetails";
 
 export const AnimalPage = () => {
   const { id } = useParams<{ id: string }>();
@@ -14,7 +15,7 @@ export const AnimalPage = () => {
   return (
     <>
       <h1>About this animal</h1>
-      <div>{foundAnimal?.name}</div>
+      <AnimalDetails foundAnimal={foundAnimal}></AnimalDetails>
     </>
   );
 };
