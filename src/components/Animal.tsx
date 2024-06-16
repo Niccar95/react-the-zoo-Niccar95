@@ -17,8 +17,16 @@ export const Animal = ({ animal, findAnimal }: IAnimalProps) => {
   };
 
   const handleFeed = () => {
+    const storedData = JSON.parse(
+      localStorage.getItem("animalData") || "[]"
+    ) as IAnimal[];
     setIsFed(!animal.isFed);
+    const updatedData = storedData.map((item) =>
+      item.id === animal.id ? { ...item, isFed: !isFed } : item
+    );
+    localStorage.setItem("animalData", JSON.stringify(updatedData));
   };
+
   return (
     <>
       <article id="animalCard">
@@ -33,6 +41,7 @@ export const Animal = ({ animal, findAnimal }: IAnimalProps) => {
         <button disabled={isFed} onClick={handleFeed}>
           Feed me
         </button>
+        <p>Is Fed: {isFed ? "Yes" : "No"}</p>
       </article>
     </>
   );
