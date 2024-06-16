@@ -41,7 +41,7 @@ export const Animal = ({ animal, findAnimal }: IAnimalProps) => {
         <button disabled={isFed} onClick={handleFeed}>
           Feed me
         </button>
-        <p>Is Fed: {isFed ? "Yes" : "No"}</p>
+        <p>{isFed ? "Has been fed" : "Is hungry"}</p>
       </article>
     </>
   );
