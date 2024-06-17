@@ -14,11 +14,21 @@ export const AnimalsPage = () => {
     const getData = async () => {
       try {
         setLoading(true);
-        const animalData = await getAnimalData();
-        setAnimals(animalData);
-        setDataFetched(true);
-        console.log("Fetched animals successfully:", animalData.length);
-        localStorage.setItem("animalData", JSON.stringify(animalData));
+
+        const animalData = JSON.parse(
+          localStorage.getItem("animalData") || "[]"
+        ) as IAnimal[];
+
+        if (animalData) {
+          setAnimals(animalData);
+          console.log("Fetched animals from localStorage:", animalData.length);
+        } else {
+          const animalData = await getAnimalData();
+          setAnimals(animalData);
+          localStorage.setItem("animalData", JSON.stringify(animalData));
+          setDataFetched(true);
+          console.log("Fetched animals successfully:", animalData.length);
+        }
       } catch (error) {
         console.error("Error fetching animals:", error);
       } finally {
