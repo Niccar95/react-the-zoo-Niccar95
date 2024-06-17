@@ -34,7 +34,7 @@ export const Animal = ({ animal, findAnimal }: IAnimalProps) => {
           Feed me
         </button>
         <p>{isFed ? "Has been fed" : "Is hungry"}</p>
-        {isFed && <p>{lastFed.toString()}</p>}
+        {isFed && <p>{lastFed.toLocaleString()}</p>}
       </article>
     </>
   );

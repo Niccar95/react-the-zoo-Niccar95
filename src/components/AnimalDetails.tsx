@@ -8,7 +8,7 @@ interface IFoundAnimalProps {
 export const AnimalDetails = ({ foundAnimal }: IFoundAnimalProps) => {
   const { handleFeed, isFed, lastFed } = useFeedAnimal(
     foundAnimal.isFed,
-    foundAnimal.lastFed
+    new Date(foundAnimal.lastFed)
   );
   console.log("isFed", isFed);
 
@@ -29,7 +29,7 @@ export const AnimalDetails = ({ foundAnimal }: IFoundAnimalProps) => {
             Feed me
           </button>
           <p>{isFed ? "Has been fed" : "Is hungry"}</p>
-          {isFed && <p>{lastFed.toString()}</p>}
+          {isFed && <p>{lastFed.toLocaleString()}</p>}
         </article>
       )}
     </>

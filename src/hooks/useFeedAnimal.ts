@@ -9,6 +9,7 @@ export const useFeedAnimal = (initialIsFed: boolean, initialLastFed: Date) => {
     const newLastFed = new Date();
     setIsFed(true);
     setLastFed(newLastFed);
+
     const storedData = JSON.parse(
       localStorage.getItem("animalData") || "[]"
     ) as IAnimal[];
