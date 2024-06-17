@@ -1,21 +1,16 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { IAnimal } from "../models/IAnimal";
 
 export const useAnimal = () => {
-  const [storedAnimals, setStoredAnimals] = useState<IAnimal[]>([]);
-  const [foundAnimal, setFoundAnimal] = useState<IAnimal | undefined>();
-
-  useEffect(() => {
-    const animals = JSON.parse(localStorage.getItem("animalData") || "[]");
-    setStoredAnimals(animals);
-    console.log(animals);
-  }, []);
+  const storedAnimals = JSON.parse(localStorage.getItem("animalData") || "[]");
+  const [foundAnimal, setFoundAnimal] = useState<IAnimal>();
 
   const findAnimal = (animalId: number) => {
     const animal = storedAnimals.find((a) => a.id === animalId);
-    setFoundAnimal(animal);
 
-    console.log(animal);
+    if (animal !== undefined) {
+      setFoundAnimal(animal);
+    }
   };
 
   return { findAnimal, foundAnimal };

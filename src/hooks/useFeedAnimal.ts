@@ -7,12 +7,12 @@ export const useFeedAnimal = (initialIsFed: boolean) => {
   console.log(isFed);
 
   const handleFeed = (id: number) => {
-    setIsFed((prevIsFed) => !prevIsFed);
+    setIsFed(true);
     const storedData = JSON.parse(
       localStorage.getItem("animalData") || "[]"
     ) as IAnimal[];
     const updatedData = storedData.map((item) =>
-      item.id === id ? { ...item, isFed: !isFed } : item
+      item.id === id ? { ...item, isFed: true } : item
     );
     localStorage.setItem("animalData", JSON.stringify(updatedData));
   };
