@@ -38,10 +38,10 @@ export const Animal = ({ animal, findAnimal }: IAnimalProps) => {
             alt={animal.name}
           ></img>
         </div>
-        <button disabled={isFed} onClick={handleFeed}>
+        <button disabled={animal.isFed} onClick={handleFeed}>
           Feed me
         </button>
-        <p>{isFed ? "Has been fed" : "Is hungry"}</p>
+        <p>{animal.isFed ? "Has been fed" : "Is hungry"}</p>
       </article>
     </>
   );
