@@ -6,7 +6,7 @@ interface IFoundAnimalProps {
 }
 
 export const AnimalDetails = ({ foundAnimal }: IFoundAnimalProps) => {
-  const { handleFeed, isFed } = useFeedAnimal(
+  const { handleFeed, isFed, lastFed } = useFeedAnimal(
     foundAnimal.isFed,
     foundAnimal.lastFed
   );
@@ -29,6 +29,7 @@ export const AnimalDetails = ({ foundAnimal }: IFoundAnimalProps) => {
             Feed me
           </button>
           <p>{isFed ? "Has been fed" : "Is hungry"}</p>
+          {isFed && <p>{lastFed.toString()}</p>}
         </article>
       )}
     </>
