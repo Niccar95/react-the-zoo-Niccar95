@@ -1,5 +1,6 @@
 import { useFeedAnimal } from "../hooks/useFeedAnimal";
 import { IAnimal } from "../models/IAnimal";
+import placeholder from "../assets/magnifying-glass-2831367_1920.png";
 
 interface IFoundAnimalProps {
   foundAnimal: IAnimal;
@@ -20,7 +21,15 @@ export const AnimalDetails = ({ foundAnimal }: IFoundAnimalProps) => {
 
           <div id="descriptionContainer">
             <div className="imageContainer">
-              <img className="animalImage" src={foundAnimal.imageUrl}></img>
+              <img
+                className="animalImage"
+                src={foundAnimal.imageUrl}
+                alt={foundAnimal.name}
+                onError={(e) => {
+                  const target = e.target as HTMLImageElement;
+                  target.src = placeholder;
+                }}
+              ></img>
             </div>
             <p>{foundAnimal.longDescription}</p>
           </div>

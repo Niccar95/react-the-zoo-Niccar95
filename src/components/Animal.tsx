@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { IAnimal } from "../models/IAnimal";
 import { useFeedAnimal } from "../hooks/useFeedAnimal";
+import placeholder from "../assets/magnifying-glass-2831367_1920.png";
 
 interface IAnimalProps {
   animal: IAnimal;
@@ -28,6 +29,10 @@ export const Animal = ({ animal, findAnimal }: IAnimalProps) => {
             className="animalImage"
             src={animal.imageUrl}
             alt={animal.name}
+            onError={(e) => {
+              const target = e.target as HTMLImageElement;
+              target.src = placeholder;
+            }}
           ></img>
         </div>
         <button disabled={isFed} onClick={() => handleFeed(animal.id)}>
