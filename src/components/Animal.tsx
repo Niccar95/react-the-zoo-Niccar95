@@ -8,7 +8,10 @@ interface IAnimalProps {
 }
 
 export const Animal = ({ animal, findAnimal }: IAnimalProps) => {
-  const { handleFeed, isFed } = useFeedAnimal(animal.isFed);
+  const { handleFeed, isFed, lastFed } = useFeedAnimal(
+    animal.isFed,
+    new Date(animal.lastFed)
+  );
   const navigate = useNavigate();
 
   const handleNavigation = () => {
@@ -31,6 +34,7 @@ export const Animal = ({ animal, findAnimal }: IAnimalProps) => {
           Feed me
         </button>
         <p>{isFed ? "Has been fed" : "Is hungry"}</p>
+        {isFed && <p>{lastFed.toString()}</p>}
       </article>
     </>
   );

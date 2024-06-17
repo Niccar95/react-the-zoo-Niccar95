@@ -6,7 +6,10 @@ interface IFoundAnimalProps {
 }
 
 export const AnimalDetails = ({ foundAnimal }: IFoundAnimalProps) => {
-  const { handleFeed, isFed } = useFeedAnimal(foundAnimal.isFed);
+  const { handleFeed, isFed } = useFeedAnimal(
+    foundAnimal.isFed,
+    foundAnimal.lastFed
+  );
   console.log("isFed", isFed);
 
   return (

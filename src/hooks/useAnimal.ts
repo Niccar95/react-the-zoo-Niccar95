@@ -6,7 +6,7 @@ export const useAnimal = () => {
   const [foundAnimal, setFoundAnimal] = useState<IAnimal>();
 
   const findAnimal = (animalId: number) => {
-    const animal = storedAnimals.find((a) => a.id === animalId);
+    const animal = storedAnimals.find((a: { id: number }) => a.id === animalId);
 
     if (animal !== undefined) {
       setFoundAnimal(animal);
