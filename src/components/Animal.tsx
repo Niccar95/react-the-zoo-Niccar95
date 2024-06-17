@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { IAnimal } from "../models/IAnimal";
-import { useState } from "react";
+import { useFeedAnimal } from "../hooks/useFeedAnimal";
 
 interface IAnimalProps {
   animal: IAnimal;
@@ -8,23 +8,12 @@ interface IAnimalProps {
 }
 
 export const Animal = ({ animal, findAnimal }: IAnimalProps) => {
+  const { handleFeed, isFed } = useFeedAnimal(animal.isFed);
   const navigate = useNavigate();
-  const [isFed, setIsFed] = useState<boolean>(false);
 
   const handleNavigation = () => {
     navigate("/animal/" + animal.id);
     findAnimal(animal.id);
-  };
-
-  const handleFeed = () => {
-    const storedData = JSON.parse(
-      localStorage.getItem("animalData") || "[]"
-    ) as IAnimal[];
-    setIsFed(!animal.isFed);
-    const updatedData = storedData.map((item) =>
-      item.id === animal.id ? { ...item, isFed: !isFed } : item
-    );
-    localStorage.setItem("animalData", JSON.stringify(updatedData));
   };
 
   return (
@@ -38,10 +27,10 @@ export const Animal = ({ animal, findAnimal }: IAnimalProps) => {
             alt={animal.name}
           ></img>
         </div>
-        <button disabled={animal.isFed} onClick={handleFeed}>
+        <button disabled={isFed} onClick={() => handleFeed(animal.id)}>
           Feed me
         </button>
-        <p>{animal.isFed ? "Has been fed" : "Is hungry"}</p>
+        <p>{isFed ? "Has been fed" : "Is hungry"}</p>
       </article>
     </>
   );

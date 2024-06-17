@@ -19,15 +19,15 @@ export const AnimalsPage = () => {
           localStorage.getItem("animalData") || "[]"
         ) as IAnimal[];
 
-        if (animalData) {
+        if (animalData.length > 0) {
           setAnimals(animalData);
           console.log("Fetched animals from localStorage:", animalData.length);
         } else {
-          const animalData = await getAnimalData();
-          setAnimals(animalData);
-          localStorage.setItem("animalData", JSON.stringify(animalData));
+          const animalFetchData = await getAnimalData();
+          setAnimals(animalFetchData);
+          localStorage.setItem("animalData", JSON.stringify(animalFetchData));
           setDataFetched(true);
-          console.log("Fetched animals successfully:", animalData.length);
+          console.log("Fetched animals successfully:", animalFetchData);
         }
       } catch (error) {
         console.error("Error fetching animals:", error);

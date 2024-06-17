@@ -1,7 +1,8 @@
 import { useParams } from "react-router-dom";
-import { useAnimal } from "../hooks/useAnimal";
+
 import { useEffect } from "react";
 import { AnimalDetails } from "../components/AnimalDetails";
+import { useAnimal } from "../hooks/useAnimal";
 
 export const AnimalPage = () => {
   const { id } = useParams<{ id: string }>();
