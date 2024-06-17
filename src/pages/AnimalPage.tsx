@@ -1,18 +1,15 @@
 import { useParams } from "react-router-dom";
 
-//import { useEffect } from "react";
 import { AnimalDetails } from "../components/AnimalDetails";
-import { useAnimal } from "../hooks/useAnimal";
+import { useFindAnimal } from "../hooks/useFindAnimal";
 
 export const AnimalPage = () => {
   const { id } = useParams<{ id: string }>();
-  const { findAnimal, foundAnimal } = useAnimal();
+  const { findAnimal, foundAnimal } = useFindAnimal();
 
-  // useEffect(() => {
   if (id && !foundAnimal) {
     findAnimal(parseInt(id, 10));
   }
-  //}, [id, findAnimal]);
 
   return (
     <>

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { IAnimal } from "../models/IAnimal";
 
-export const useAnimal = () => {
+export const useFindAnimal = () => {
   const storedAnimals = JSON.parse(localStorage.getItem("animalData") || "[]");
   const [foundAnimal, setFoundAnimal] = useState<IAnimal>();
 

@@ -2,10 +2,10 @@ import { useEffect, useState } from "react";
 import { getAnimalData } from "../services/AnimalService";
 import { IAnimal } from "../models/IAnimal";
 import { Animals } from "../components/Animals";
-import { useAnimal } from "../hooks/useAnimal";
+import { useFindAnimal } from "../hooks/useFindAnimal";
 
 export const AnimalsPage = () => {
-  const { findAnimal } = useAnimal();
+  const { findAnimal } = useFindAnimal();
   const [animals, setAnimals] = useState<IAnimal[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [dataFetched, setDataFetched] = useState<boolean>(false);

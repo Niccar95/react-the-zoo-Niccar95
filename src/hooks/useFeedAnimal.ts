@@ -13,8 +13,10 @@ export const useFeedAnimal = (initialIsFed: boolean, initialLastFed: Date) => {
     const storedData = JSON.parse(
       localStorage.getItem("animalData") || "[]"
     ) as IAnimal[];
-    const updatedData = storedData.map((item) =>
-      item.id === id ? { ...item, isFed: true, lastFed: newLastFed } : item
+    const updatedData = storedData.map((animal) =>
+      animal.id === id
+        ? { ...animal, isFed: true, lastFed: newLastFed }
+        : animal
     );
     localStorage.setItem("animalData", JSON.stringify(updatedData));
   };
