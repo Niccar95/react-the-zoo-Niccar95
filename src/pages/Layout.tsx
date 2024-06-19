@@ -4,13 +4,14 @@ export const Layout = () => {
   return (
     <>
       <header>
+        <h2 className="logo">THE ZOO</h2>
         <nav>
           <ul>
             <li>
-              <NavLink to={"/"}>Home</NavLink>
+              <NavLink to={"/"}>Hem</NavLink>
             </li>
             <li>
-              <NavLink to={"/animals"}>Animals</NavLink>
+              <NavLink to={"/animals"}>Alla djur</NavLink>
             </li>
           </ul>
         </nav>
@@ -18,7 +19,6 @@ export const Layout = () => {
       <main>
         <Outlet />
       </main>
-      <footer>Some content</footer>
     </>
   );
 };

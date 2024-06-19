@@ -31,16 +31,17 @@ export const AnimalDetails = ({ foundAnimal }: IFoundAnimalProps) => {
                 }}
               ></img>
             </div>
+
             <p>{foundAnimal.longDescription}</p>
           </div>
 
           <div id="buttonWrapper">
             <button disabled={isFed} onClick={() => handleFeed(foundAnimal.id)}>
-              Feed me
+              Mata mig
             </button>
 
             <div>
-              <p>{isFed ? "Has been fed" : "Is hungry"}</p>
+              <p>{isFed ? "Har matats" : "Är hungrig"}</p>
               {isFed && <p>{lastFed.toLocaleString()}</p>}
             </div>
           </div>

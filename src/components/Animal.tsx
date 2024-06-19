@@ -35,10 +35,13 @@ export const Animal = ({ animal, findAnimal }: IAnimalProps) => {
             }}
           ></img>
         </div>
+        <div id="shortDescription">
+          <p>{animal.shortDescription}</p>
+        </div>
         <button disabled={isFed} onClick={() => handleFeed(animal.id)}>
-          Feed me
+          Mata mig
         </button>
-        <p>{isFed ? "Has been fed" : "Is hungry"}</p>
+        <p>{isFed ? "Har matats" : "är hungrig"}</p>
         {isFed && <p>{lastFed.toLocaleString()}</p>}
       </article>
     </>

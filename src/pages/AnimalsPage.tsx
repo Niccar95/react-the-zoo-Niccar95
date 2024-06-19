@@ -43,8 +43,8 @@ export const AnimalsPage = () => {
 
   return (
     <>
-      <h1>Our animals</h1>
-      {loading && <h2>Loading...</h2>}
+      <h1>Alla djur</h1>
+      {loading && <h2>Laddar sidan...</h2>}
       <div id="animalWrapper">
         <Animals animals={animals} findAnimal={findAnimal}></Animals>
       </div>
