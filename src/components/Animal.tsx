@@ -39,10 +39,13 @@ export const Animal = ({ animal, findAnimal }: IAnimalProps) => {
           <p>{animal.shortDescription}</p>
         </div>
         <button disabled={isFed} onClick={() => handleFeed(animal.id)}>
-          Mata mig
+          {isFed ? "Jag har matats" : "Mata mig"}
         </button>
-        <p>{isFed ? "Har matats" : "är hungrig"}</p>
-        {isFed && <p>{lastFed.toLocaleString()}</p>}
+        <p>
+          <b>
+            {isFed ? "Matades den: " + lastFed.toLocaleString() : "Är hungrig"}
+          </b>
+        </p>
       </article>
     </>
   );

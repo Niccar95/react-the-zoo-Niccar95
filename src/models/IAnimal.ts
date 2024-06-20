@@ -7,4 +7,5 @@ export interface IAnimal {
   imageUrl: string;
   isFed: boolean;
   lastFed: Date;
+  yearOfBirth: number;
 }

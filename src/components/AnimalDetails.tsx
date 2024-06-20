@@ -30,6 +30,9 @@ export const AnimalDetails = ({ foundAnimal }: IFoundAnimalProps) => {
                   target.src = placeholder;
                 }}
               ></img>
+              <p>
+                Födelseår: <b>{foundAnimal.yearOfBirth}</b>
+              </p>
             </div>
 
             <p>{foundAnimal.longDescription}</p>
@@ -37,12 +40,17 @@ export const AnimalDetails = ({ foundAnimal }: IFoundAnimalProps) => {
 
           <div id="buttonWrapper">
             <button disabled={isFed} onClick={() => handleFeed(foundAnimal.id)}>
-              Mata mig
+              {isFed ? "Jag har matats" : "Mata mig"}
             </button>
 
             <div>
-              <p>{isFed ? "Har matats" : "Är hungrig"}</p>
-              {isFed && <p>{lastFed.toLocaleString()}</p>}
+              <p>
+                <b>
+                  {isFed
+                    ? "Matades den: " + lastFed.toLocaleString()
+                    : "Är hungrig"}
+                </b>
+              </p>
             </div>
           </div>
         </article>
