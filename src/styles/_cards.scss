@@ -39,33 +39,59 @@
   flex-direction: column;
   align-items: center;
   gap: 1em;
-  padding: 2em;
-  width: 60%;
+  padding: 1.5em;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   border-top: solid rgb(255, 123, 46) 5px;
 
-  #infoContainer {
+  @include desktop() {
+    width: 60%;
+    padding: 2em;
+  }
+
+  #generalInfoContainer {
     display: flex;
     gap: 1.5em;
-    .imageContainer {
-      margin: 0;
-      width: 200px;
-      height: 200px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    flex-direction: column;
 
-      .animalImage {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
+    @include desktop() {
+      flex-direction: row;
+    }
+
+    #animalInfoSection {
+      display: flex;
+      gap: 1em;
+      @include desktop() {
+        flex-direction: column;
+      }
+
+      .imageContainer {
+        margin: 0;
+        width: 120px;
+        height: 120px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+        @include desktop() {
+          width: 200px;
+          height: 200px;
+        }
+
+        .animalImage {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
       }
     }
 
-    #descriptionContainer {
+    #descriptionSection {
       display: flex;
       flex-direction: column;
       margin: 0;
-      width: 65%;
       text-align: start;
+
+      @include desktop() {
+        width: 65%;
+      }
 
       .shortText {
         margin-bottom: 1.5em;

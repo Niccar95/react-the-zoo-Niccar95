@@ -17,34 +17,36 @@ export const AnimalDetails = ({ foundAnimal }: IFoundAnimalProps) => {
     <>
       {foundAnimal && (
         <article id="aboutCard">
-          <div id="infoContainer">
-            <div className="imageContainer">
-              <img
-                className="animalImage"
-                src={foundAnimal.imageUrl}
-                alt={foundAnimal.name}
-                onError={(e) => {
-                  const target = e.target as HTMLImageElement;
-                  target.src = placeholder;
-                }}
-              ></img>
+          <div id="generalInfoContainer">
+            <section id="animalInfoSection">
+              <div className="imageContainer">
+                <img
+                  className="animalImage"
+                  src={foundAnimal.imageUrl}
+                  alt={foundAnimal.name}
+                  onError={(e) => {
+                    const target = e.target as HTMLImageElement;
+                    target.src = placeholder;
+                  }}
+                ></img>
+              </div>
               <p>
                 Födelseår: <b>{foundAnimal.yearOfBirth}</b>
               </p>
-            </div>
-            <div id="descriptionContainer">
+            </section>
+
+            <section id="descriptionSection">
               <h2>{foundAnimal.name}</h2>
               <p className="shortText">{foundAnimal.shortDescription}</p>
               <h3>Art</h3>
               <p className="longText">{foundAnimal.longDescription}</p>
-            </div>
+            </section>
           </div>
 
           <div id="buttonWrapper">
             <button disabled={isFed} onClick={() => handleFeed(foundAnimal.id)}>
               {isFed ? "Jag har matats" : "Mata mig"}
             </button>
-
             <div>
               <p>
                 <b>
