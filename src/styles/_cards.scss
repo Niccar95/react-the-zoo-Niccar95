@@ -44,7 +44,7 @@
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   border-top: solid rgb(255, 123, 46) 5px;
 
-  #descriptionContainer {
+  #infoContainer {
     display: flex;
     gap: 1.5em;
     .imageContainer {
@@ -60,10 +60,16 @@
       }
     }
 
-    p {
+    #descriptionContainer {
+      display: flex;
+      flex-direction: column;
       margin: 0;
-      width: 60%;
+      width: 65%;
       text-align: start;
+
+      .shortText {
+        margin-bottom: 1.5em;
+      }
     }
   }
 }

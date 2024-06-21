@@ -17,9 +17,7 @@ export const AnimalDetails = ({ foundAnimal }: IFoundAnimalProps) => {
     <>
       {foundAnimal && (
         <article id="aboutCard">
-          <h2>{foundAnimal.name}</h2>
-
-          <div id="descriptionContainer">
+          <div id="infoContainer">
             <div className="imageContainer">
               <img
                 className="animalImage"
@@ -34,8 +32,12 @@ export const AnimalDetails = ({ foundAnimal }: IFoundAnimalProps) => {
                 Födelseår: <b>{foundAnimal.yearOfBirth}</b>
               </p>
             </div>
-
-            <p>{foundAnimal.longDescription}</p>
+            <div id="descriptionContainer">
+              <h2>{foundAnimal.name}</h2>
+              <p className="shortText">{foundAnimal.shortDescription}</p>
+              <h3>Art</h3>
+              <p className="longText">{foundAnimal.longDescription}</p>
+            </div>
           </div>
 
           <div id="buttonWrapper">
