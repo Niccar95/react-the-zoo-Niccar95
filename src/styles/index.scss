@@ -1,5 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap");
 
+@import "breakpoints";
+
 * {
   padding: 0;
   margin: 0;
@@ -23,8 +25,10 @@ body {
 }
 
 h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+  font-family: 2.5em;
+  @include desktop() {
+    font-size: 3em;
+  }
 }
 
 button {

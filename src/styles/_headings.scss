@@ -1,0 +1,6 @@
+.welcomeHeading {
+  font-size: 1.8em;
+  @include desktop() {
+    font-size: 3em;
+  }
+}
