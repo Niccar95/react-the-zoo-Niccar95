@@ -8,4 +8,5 @@ export interface IAnimal {
   isFed: boolean;
   lastFed: Date;
   yearOfBirth: number;
+  medicine: string;
 }

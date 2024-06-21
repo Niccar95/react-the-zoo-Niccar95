@@ -60,14 +60,17 @@
     #animalInfoSection {
       display: flex;
       gap: 1em;
+      text-align: left;
+
       @include desktop() {
         flex-direction: column;
+        width: 200px;
       }
 
       .imageContainer {
         margin: 0;
-        width: 120px;
-        height: 120px;
+        width: 140px;
+        height: 140px;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 
         @include desktop() {
@@ -81,6 +84,19 @@
           object-fit: cover;
         }
       }
+
+      .uniqueDetailsContainer {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5em;
+        font-size: 12px;
+        width: 40%;
+
+        @include desktop() {
+          font-size: 1em;
+          width: 100%;
+        }
+      }
     }
 
     #descriptionSection {
@@ -88,6 +104,7 @@
       flex-direction: column;
       margin: 0;
       text-align: start;
+      line-height: 2em;
 
       @include desktop() {
         width: 65%;

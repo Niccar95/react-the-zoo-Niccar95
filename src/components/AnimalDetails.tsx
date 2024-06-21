@@ -30,9 +30,19 @@ export const AnimalDetails = ({ foundAnimal }: IFoundAnimalProps) => {
                   }}
                 ></img>
               </div>
-              <p>
-                Födelseår: <b>{foundAnimal.yearOfBirth}</b>
-              </p>
+
+              <div className="uniqueDetailsContainer">
+                <p>
+                  <b>Latinsk namn: </b>
+                  {foundAnimal.latinName}
+                </p>
+                <p>
+                  <b>Födelseår: </b> {foundAnimal.yearOfBirth}
+                </p>
+                <p>
+                  <b>Mediciner: </b> {foundAnimal.medicine}
+                </p>
+              </div>
             </section>
 
             <section id="descriptionSection">
