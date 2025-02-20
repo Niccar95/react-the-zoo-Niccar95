@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://Niccar95.github.io/react-the-zoo-Niccar95/",
+  "homepage": "http://Niccar95.github.io/react-the-zoo-Niccar95",
   "scripts": {
     "dev": "vite",
     "predeploy": "npm run build",
