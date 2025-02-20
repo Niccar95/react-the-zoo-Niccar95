@@ -8,7 +8,6 @@ export const Home = () => {
         <div className="animalImageContainer">
           <img className="animalImage" src={animalImage} alt="giraffe"></img>
         </div>
-
         <section className="zooDescriptionSection">
           <p>
             Välkommen till "The Zoo" – din främsta destination för att utforska
