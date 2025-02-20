@@ -1,3 +1,5 @@
+@use "./breakpoints" as *;
+
 .welcomeHeading {
   font-size: 1.8em;
   @include desktop() {

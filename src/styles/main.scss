@@ -1,5 +1,5 @@
-@import "cards";
-@import "wrappers";
-@import "Layout";
-@import "PageNotFound";
-@import "headings";
+@use "./cards";
+@use "./wrappers";
+@use "./Layout";
+@use "./PageNotFound";
+@use "./headings";
